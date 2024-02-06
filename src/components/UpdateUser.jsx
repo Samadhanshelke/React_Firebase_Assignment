@@ -43,7 +43,7 @@ function UpdateUser({editUserData,setOpenFlag,getUserList}) {
 
   return (
     <div className="flex flex-col h-screen bg-black text-white items-center justify-center gap-y-3 mb-4">
-        <form className="flex flex-col justify-center items-center gap-y-4 border border-white p-4 rounded w-[500px]" onSubmit={handleFormSubmit}>
+        <form className="flex flex-col justify-center items-center gap-y-4 sm:border sm:border-white p-4 rounded sm:w-[500px]" onSubmit={handleFormSubmit}>
          <h1 className="text-2xl">Update User</h1>
 
         <div className="flex flex-col justify-start gap-y-2">

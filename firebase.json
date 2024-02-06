@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/react_firebase_auth",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

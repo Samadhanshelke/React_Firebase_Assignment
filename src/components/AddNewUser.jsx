@@ -55,7 +55,7 @@ function AddNewUser({usersCollectionRef,getUserList}) {
       }
   return (
     <div className="flex bg-black h-screen text-white  flex-col items-center justify-center gap-y-3 mb-4">
-      <div className="w-[500px] border flex flex-col justify-center items-center py-10 px-2 rounded-md">
+      <div className="sm:w-[500px] sm:border flex flex-col justify-center items-center py-10 sm:px-2 rounded-md">
        <h1 className="text-2xl">Add New User</h1>
         <form className="flex flex-col gap-y-4 text-black" onSubmit={handleFormSubmit}>
 

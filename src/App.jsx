@@ -11,6 +11,7 @@ import HomePage from './Pages/HomePage'
 import Navbar from './components/Navbar'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { Toaster } from 'react-hot-toast'
+import Sidebar from './components/Sidebar'
 // import ProtectedRoute from './config/ProtectedRoute'
 
 
@@ -20,6 +21,7 @@ function App() {
    const [users,setUsers] = useState([])
    const [isLoggedIn,setIsLoggedIn] = useState(false);
    const [Loading,setLoading] = useState(true)
+   const [openSidebar,setOpenSidebar] = useState(false)
 // const navigate  = useNavigate()
    useEffect(() => {
     const auth = getAuth();
@@ -60,11 +62,15 @@ function App() {
    },[])
   
   //  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=51d2507fccc3f97cadac8826f8d8419f`
-
+  
   return (
     <div>      
       <BrowserRouter>
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      {
+        openSidebar ?  <Sidebar setOpenSidebar={setOpenSidebar}/> :<Navbar setOpenSidebar={setOpenSidebar} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      }
+      
+     
         <Routes>
 
             <Route path='/' element={<HomePage/>}/>

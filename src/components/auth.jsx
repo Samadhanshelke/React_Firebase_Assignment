@@ -49,7 +49,7 @@ const handleInputChange = (e) => {
    
     return (
         <div className='flex bg-black  text-white h-screen items-center justify-center '>
-           <div className='w-[500px] border-2 border-white flex flex-col justify-center items-center gap-y-4 p-4 rounded-md'>
+           <div className='sm:w-[500px] sm:border-2 sm:border-white flex flex-col justify-center items-center gap-y-4 p-4 rounded-md'>
            <h1 className='text-3xl'>Login</h1>
              <input type="email" className='p-2 text-black rounded-sm w-72 focus:outline-none' value={email} name="email" id="" placeholder="Email..." onChange={handleInputChange}/>
              <input type="password" className='p-2 text-black rounded-sm w-72 focus:outline-none' value={password} name="password" id="" placeholder="Password..." onChange={handleInputChange}/>

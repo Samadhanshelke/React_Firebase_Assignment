@@ -98,7 +98,7 @@ const [search,setSearch] = useState("")
     </div>
     <Table className="border-collapse border-2 border-slate-500  w-[1000px] m-auto mt-8">
     <Thead className="bg-[#334054] text-white rounded-lg">
-      <Tr className="text-center h-10 rounded-lg">
+      <Tr className="text-center rounded-lg">
         <Th className="border border-slate-600">Username</Th>
         <Th className="border border-slate-600">Date</Th>
         <Th className="border border-slate-600">Status</Th>
@@ -116,11 +116,11 @@ const [search,setSearch] = useState("")
                      : user.Username.toLowerCase().includes(search) || user.added_date.toLowerCase().includes(search) || user.status.toLowerCase().includes(search) ;
                 }).map((user)=>{
            return (
-           <Tr key={user.id} className="text-center text-[#7e8ca1] h-10 bg-[#1e293b]">
+           <Tr key={user.id} className="text-center text-[#7e8ca1] bg-[#1e293b]">
                <Td className="border border-slate-600">{user.Username}</Td>
                <Td className="border border-slate-600">{user.added_date}</Td>
                <Td className="border border-slate-600">{user.status}</Td>
-               <Td className="flex border border-slate-600 items-center text-center justify-items-center ps-4 h-10 w-full gap-x-2">
+               <Td className="flex flex-row  border border-slate-600 items-center text-center justify-items-center ps-4 w-full gap-x-2">
                    <FaRegEdit onClick={()=>handleUpdateUser(user)} className="cursor-pointer"/>
                    <MdDeleteOutline onClick={()=>handleDelete(user.id)} className="cursor-pointer"/>
                   
