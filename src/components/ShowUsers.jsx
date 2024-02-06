@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import Sort from "./Sort";
 import toast from "react-hot-toast";
 import { RotatingLines } from "react-loader-spinner";
+import { FaChevronUp,FaChevronDown } from "react-icons/fa6";
 function ShowUsers({users,getUserList,setUsers,Loading}) {
   const navigate = useNavigate()
 const [openFlag,setOpenFlag] = useState(false)
@@ -67,6 +68,21 @@ const [search,setSearch] = useState("")
     }
   }
 
+  const handleAscSort = ()=>{
+    const sortedList = sortData.slice().sort((a, b) => {
+      return new Date(a.added_date) - new Date(b.added_date);
+  });
+  setSortData(sortedList);
+  console.log(sortedList,'asc sort')
+  }
+  const handleDescSort = () => {
+    // Toggle the sort order
+    const sortedList = sortData.slice().sort((a, b) => {
+        return new Date(b.added_date) - new Date(a.added_date);
+    });
+    setSortData(sortedList);
+    // setSortOrder('desc');
+};
 
   if(openFlag == true){
     return <UpdateUser editUserData={editUserData} setOpenFlag={setOpenFlag} getUserList={getUserList}/>
@@ -98,9 +114,9 @@ const [search,setSearch] = useState("")
     </div>
     <Table className="border-collapse border-2 border-slate-500  w-[1000px] m-auto mt-8">
     <Thead className="bg-[#334054] text-white rounded-lg">
-      <Tr className="text-center rounded-lg">
+      <Tr className="text-center rounded-lg h-12">
         <Th className="border border-slate-600">Username</Th>
-        <Th className="border border-slate-600">Date</Th>
+        <Th className="border flex items-center justify-center gap-x-2 h-12 border-slate-600">Date <div className="flex flex-col -gap-y-4"><FaChevronUp onClick={handleAscSort}/><FaChevronDown onClick={handleDescSort}/></div></Th>
         <Th className="border border-slate-600">Status</Th>
         <Th className="border border-slate-600">Actions</Th>
 
@@ -120,7 +136,7 @@ const [search,setSearch] = useState("")
                <Td className="border border-slate-600">{user.Username}</Td>
                <Td className="border border-slate-600">{user.added_date}</Td>
                <Td className="border border-slate-600">{user.status}</Td>
-               <Td className="flex flex-row  border border-slate-600 items-center text-center justify-items-center ps-4 w-full gap-x-2">
+               <Td className="flex flex-row  border h-12 border-slate-600 items-center text-center justify-items-center ps-4 w-full gap-x-2">
                    <FaRegEdit onClick={()=>handleUpdateUser(user)} className="cursor-pointer"/>
                    <MdDeleteOutline onClick={()=>handleDelete(user.id)} className="cursor-pointer"/>
                   
